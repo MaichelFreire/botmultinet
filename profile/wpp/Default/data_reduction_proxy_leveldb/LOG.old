@@ -1,2 +1,3 @@
-2022/03/09-21:33:23.913 589c Creating DB C:\Users\Michael\PycharmProjects\bot_multinet\profile\wpp\Default\data_reduction_proxy_leveldb since it was missing.
-2022/03/09-21:33:23.922 589c Delete type=3 #1
+2022/03/09-22:39:20.670 8af0 Recovering log #19
+2022/03/09-22:39:20.715 8af0 Delete type=0 #19
+2022/03/09-22:39:20.715 8af0 Delete type=3 #18

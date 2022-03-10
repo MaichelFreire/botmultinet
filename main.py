@@ -1,27 +1,28 @@
 import mysql.connector
 import os
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-import time
-import simple_colors
+from selenium.webdriver.common.service import Service
 
-init()
+import time
+
+
 
 cnx = mysql.connector.connect(user='root', database='bot49')
 print('Conectado com sucesso ao banco de dados')
 
+#  salvando sessão
+dir_path = os.getcwd()
+profile = os.path.join(dir_path, "profile", "wpp")
+options = webdriver.ChromeOptions()
+options.add_argument(
+    r"user-data-dir={}".format(profile))
 
 
-    # dir_process = os.getcwd()
-    # perfil = os.path.join(dir_process, 'perfil', 'wpp')
-    # options = webdriver.ChromeOptions()
-    # options.add_argument(r'user-data-dir{}'.format(perfil))
-
-    # abrindo o chrome
-
-
-driver = webdriver.Chrome()
+# abrindo o chrome
+driver = webdriver.Chrome("./chromedriver.exe", chrome_options=options)
 
 driver.get('https://web.whatsapp.com/')
 time.sleep(8)
@@ -51,8 +52,8 @@ while True:
 
         #  respondendo a mensagem
         elem = driver.find_element(By.XPATH, '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[2]')
-        elem.send_keys('Olá boa noite'
-                       'Segue cardapio:', red('Python', 'bold') )
+        elem.send_keys('Olá boa noite')
+
 
         elem.send_keys(Keys.RETURN)
 

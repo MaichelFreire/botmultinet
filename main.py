@@ -1,4 +1,4 @@
-import mysql.connector
+import sqlite3
 import os
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
@@ -8,39 +8,20 @@ from selenium.webdriver.common.service import Service
 
 import time
 
+db = sqlite3.connect('database.db')
+cursor = db.cursor()
+
+#  inserir dados no db
+def inserir_dados_telefone():
+
+    cursor.execute(f"INSERT INTO bot VALUES ('{contato}')")
+    db.commit()
+
+cursor.execute('SELECT * FROM bot')
+print(cursor.fetchall())
 
 
-# cnx = mysql.connector.connect(user='root', database='bot')
-# print('Conectado com sucesso ao banco de dados')
-
-
-#  testando conexão
-def check_connction(database, user):
-    conn = None
-    try:
-        conn = mysql.connector.connect()
-        print('Conectado com sucesso!')
-    except:
-        print(f'erro ao conectar: {"error"}')
-    return conn
-
-
-conn = check_connction(database='bot', user='root')
-
-
-#  query consultas
-# def exec_query(conn, query):
-#     cursor = conn.cursor()
-#     try:
-#         cursor.execute(query)
-#         conn.commit()
-#         print('sucesso na query')
-#     except:
-#         print('error')
-#
-
-
-#  salvando sessão
+#  salvando sessão para não precisar carregar novamente
 dir_path = os.getcwd()
 profile = os.path.join(dir_path, "profile", "wpp")
 options = webdriver.ChromeOptions()
@@ -53,12 +34,6 @@ driver = webdriver.Chrome("./chromedriver.exe", chrome_options=options)
 
 driver.get('https://web.whatsapp.com/')
 time.sleep(8)
-
-
-
-
-
-
 
 while True:
 
@@ -78,7 +53,7 @@ while True:
 
         contato = elem.text
         print(contato)
-
+        #  inserir_dados_telefone()
 
 
         #  pegando ultima msg
@@ -104,8 +79,6 @@ while True:
         if ultima_msg == '1':
 
             print('abrir boleto')
-
-
 
         else:
             pass

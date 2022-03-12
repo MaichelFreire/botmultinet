@@ -17,6 +17,10 @@ def inserir_dados_telefone():
     cursor.execute(f"INSERT INTO bot VALUES ('{contato}')")
     db.commit()
 
+def criar_indice():
+    cursor.execute("CREAT INDEX IF NOT")
+
+#  imprime os dados da tabela
 cursor.execute('SELECT * FROM bot')
 print(cursor.fetchall())
 
@@ -33,19 +37,20 @@ options.add_argument(
 driver = webdriver.Chrome("./chromedriver.exe", chrome_options=options)
 
 driver.get('https://web.whatsapp.com/')
-time.sleep(8)
+time.sleep(10)
 
 while True:
 
     try:
 
+
         #  voltando para o contato padrao contato padrao
         elem = driver.find_element(By.XPATH,
-                                   '//*[@id="pane-side"]/div[1]/div/div/div[5]/div/div/div[2]/div[2]/div[2]/span[1]/div')
+                                   '//*[@id="pane-side"]/div[1]/div/div/div[6]/div/div/div[2]/div[2]/div[2]/span[1]/div')
         elem.click()
 
         #  capturando notificacao de mensagem
-        elem = driver.find_element(By.XPATH, '//*[@id="pane-side"]/div[1]/div/div/div[4]/div/div/div[2]/div[2]/div[2]/span[1]/div')
+        elem = driver.find_element(By.XPATH, '//*[@id="pane-side"]/div[1]/div/div/div[5]/div/div/div[2]/div[2]/div[2]/span[1]/div')
         elem.click()  # clickando na notificaçao
 
         #  pegando nome ou numero de telefone
@@ -53,7 +58,7 @@ while True:
 
         contato = elem.text
         print(contato)
-        #  inserir_dados_telefone()
+        # inserir_dados_telefone()
 
 
         #  pegando ultima msg

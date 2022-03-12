@@ -1,6 +1,3 @@
-2022/03/10-22:43:02.030 b420 Reusing MANIFEST C:\Users\Michael\PycharmProjects\bot_multinet\profile\wpp\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2022/03/10-22:43:02.030 b420 Recovering log #3
-2022/03/10-22:43:02.079 b420 Reusing old log C:\Users\Michael\PycharmProjects\bot_multinet\profile\wpp\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000003.log 
-2022/03/10-22:43:14.019 c9b0 Level-0 table #5: started
-2022/03/10-22:43:14.046 c9b0 Level-0 table #5: 1128159 bytes OK
-2022/03/10-22:43:14.048 c9b0 Delete type=0 #3
+2022/03/11-21:23:21.129 10dac Reusing MANIFEST C:\Users\Michael\PycharmProjects\bot_multinet\profile\wpp\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/03/11-21:23:21.129 10dac Recovering log #4
+2022/03/11-21:23:21.163 10dac Reusing old log C:\Users\Michael\PycharmProjects\bot_multinet\profile\wpp\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000004.log 
